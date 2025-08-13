@@ -1,0 +1,20 @@
+{
+    "recording_config": {
+        "download_filepath": "./downloaded_graphs",
+        "recording_username": "",
+        "recording_session_name": "",
+        "use_gps": false,
+        "download_name": "downloaded_graph"
+    },
+    "graph_nav_config": {
+        "upload_filepath": "./downloaded_graphs/downloaded_graph",
+        "use_gps": false,
+        "actions": {}
+    },
+    "visual_config": {
+        "path": "./downloaded_graphs/downloaded_graph",
+        "hide_waypoint_text": false,
+        "hide_world_object_text": false,
+        "load_metadata": true
+    }
+}
