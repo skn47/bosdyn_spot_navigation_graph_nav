@@ -16,7 +16,7 @@ from bosdyn.api.graph_nav import map_pb2
 from bosdyn.client.frame_helpers import *
 from bosdyn.client.math_helpers import *
 
-import src.navigation.graph_nav_util as graph_nav_util
+import navigation.graph_nav_util as graph_nav_util
 
 def numpy_to_poly_data(pts):
     """

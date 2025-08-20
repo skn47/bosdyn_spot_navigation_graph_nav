@@ -1,5 +1,5 @@
 # bosdyn_spot_navigation_graph_nav
-Autonomous navigation on Boston Dynamics Spot Robot using the GraphNav service provided by the Spot SDK.
+Autonomous navigation on Boston Dynamics' Spot Robot using the GraphNav stack included in the Spot SDK.
 
 ## Installation
 (Note: Performing the installation in a separate virtualenv or conda environment is

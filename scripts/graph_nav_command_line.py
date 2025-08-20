@@ -6,8 +6,8 @@ import traceback
 import bosdyn.client.util
 from bosdyn.client.lease import LeaseClient, LeaseKeepAlive, ResourceAlreadyClaimedError
 
-from src.navigation import graph_nav
-from src.structures.graph_nav_client import GraphNavInterface
+import navigation.graph_nav as graph_nav
+from structures.graph_nav_client import GraphNavInterface
 
 cmd_dict = {
     '1': (graph_nav.get_localization_state, "Get localization state."),
@@ -51,14 +51,14 @@ def run(gn_cli:GraphNavInterface):
             pass
         req_type = str.split(inputs)[0]
         if req_type == 'q':
-            graph_nav.on_quit()
+            graph_nav.on_quit(gn_cli)
             break
         if req_type not in cmd_dict:
             print('Request not in the known command dictionary.')
             continue
         try:
             cmd_func = cmd_dict[req_type][0]
-            if inspect.signature(cmd_func).parameters > 1: cmd_func(gn_cli, str.split(inputs)[1:])
+            if len(inspect.signature(cmd_func).parameters) > 1: cmd_func(gn_cli, str.split(inputs)[1:])
             else: cmd_func(gn_cli)
         except Exception as e:
             print(e)

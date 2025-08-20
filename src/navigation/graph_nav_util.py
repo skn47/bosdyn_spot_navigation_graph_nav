@@ -109,8 +109,8 @@ def sort_waypoints_chrono(graph):
 
 def sort(graph, adj):
     if (has_cycle(adj)):
-        sorted = sort_waypoints_chrono(graph)
-        return [sorted[i] for i in range(len(adj))]
+        sorted_keys = sort_waypoints_chrono(graph)
+        return [sorted[i][0] for i in range(len(sorted_keys))]
     sorted = []
     visited = {wp : False for wp in adj.keys()}
     def dfs(u):
@@ -168,7 +168,7 @@ def euler_circuit(adj, src):
             circuit.append(stack.pop())
     return circuit[::-1]
 
-def shortest_path(adj, src, dest):
+def dijkstra(adj, src, dest):
     pq, dist = [(src, 0)], {u : float('inf') for u in adj.keys()}
     dist[src] = 0
     path = []

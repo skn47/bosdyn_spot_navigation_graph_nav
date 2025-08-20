@@ -7,8 +7,8 @@ import sys
 import bosdyn.client.util
 from bosdyn.client.recording import GraphNavRecordingServiceClient
 
-from src.navigation import recording
-from src.structures.recording_client import RecordingInterface
+from navigation import recording
+from structures.recording_client import RecordingInterface
 
 cmd_dict = {
     '0': recording.clear_map,
@@ -53,7 +53,7 @@ def run(r_cli:RecordingInterface):
             continue
         try:
             cmd_func = cmd_dict[req_type]
-            if inspect.signature(cmd_func).parameters > 1: cmd_func(r_cli, str.split(inputs)[1:])
+            if len(inspect.signature(cmd_func).parameters) > 1: cmd_func(r_cli, str.split(inputs)[1:])
             else: cmd_func(r_cli)
         except Exception as e:
             print(e)
